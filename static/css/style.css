@@ -192,7 +192,7 @@ body {
 	float: left;
 }
 .contactinfo li {
-	padding: 10px 15px 0;
+	padding: 0px 15px 0;
 	color: #373d54;
 }
 .contactinfo li * {
