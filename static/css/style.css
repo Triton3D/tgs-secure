@@ -228,6 +228,7 @@ body {
 	-moz-transition: all 0.5s ease 0s;
 	-webkit-transition: all 0.5s ease 0s;
 	-o-transition: all 0.5s ease 0s;
+	font-size: 40px;
 }
 .social-icons li a i:hover{
 	color: #fff;
@@ -288,6 +289,9 @@ body {
 	height: auto;
 }
 .shop-menu {
+	float: right;
+
+	margin: 0;
 	text-align: left;
 	display: inline-block;
 	vertical-align: middle;
@@ -303,7 +307,7 @@ body {
 .shop-menu ul li a {
 	background: #FFFFFF;
 	font-size: 14px;
-	padding: 2px 0;
+	padding: 11px 0;
 	line-height: 1;
 	color: #373d54;
 	display: inline-block;

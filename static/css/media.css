@@ -236,10 +236,17 @@
     .toplogo img {
         max-width: 100%;
         margin: 0 auto;
-    }
+}
+	.toplogo .social-icons {
+		margin: 0 auto;
+		text-align: center;
+ 		float: none; 
+		display: none;
+	}
     .shop-menu {
         text-align: center;
         display: block;
+	float: none;
     }
     .shop-menu ul li {
         margin: 0 0 15px;

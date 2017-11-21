@@ -11,7 +11,7 @@ class Phone(models.Model):
         verbose_name_plural = 'Номера телефонов'
 
     def __str__(self):
-        return self.name+": "+self.number
+        return self.name
 
 class Email(models.Model):
     name = models.CharField(max_length=255, default='Адрес электронной почты 1',unique=True,verbose_name="Название")
@@ -22,7 +22,21 @@ class Email(models.Model):
         verbose_name_plural = 'Адреса электронной почты'
 
     def __str__(self):
-        return self.name+": "+self.email
+        return self.name
 
-#class Social(models.Model):
-#    fb_available = models.
+class Social(models.Model):
+    SOCIAL_LIST = (
+            ('Facebook','Facebook'),
+            ('VK','VK'),
+            ('Instagram','Instagram'),
+           # ('Odnoklassniki','Odnoklassniki'),
+            ('Twitter','Twitter'),
+            )
+    name = models.CharField(max_length=60,choices=SOCIAL_LIST,verbose_name="Социальная сеть")
+    enabled = models.BooleanField(verbose_name="Отображать на страницах сайта?")
+    link = models.CharField(max_length=255,verbose_name="Аккаунт")
+    class Meta:
+        verbose_name = 'Социальные сети'
+        verbose_name_plural = 'Социальная сеть'
+    def __str__(self):
+        return self.name
