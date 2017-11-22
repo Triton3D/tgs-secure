@@ -20,4 +20,4 @@ class Banner(models.Model):
                             help_text = "help text ",
                             blank = True)
 
-    banner_img = models.ImageField(upload_to = 'products/%Y/%m/%d', blank=True)
+    banner_img = models.ImageField(upload_to = 'products/%Y/%m/%d', blank=True) #later try unique = True
