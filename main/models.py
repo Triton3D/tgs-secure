@@ -18,7 +18,7 @@ class Email(models.Model):
     email = models.CharField(max_length=255,unique=True,verbose_name="Адрес электронной почты (e-mail)",validators=[EmailValidator()])
     link = models.CharField(max_length=255,default="mailto:",verbose_name="Ссылка")
     class Meta:
-        verbose_name = 'Адрес электронной почты'
+        verbose_name = 'адрес электронной почты'
         verbose_name_plural = 'Адреса электронной почты'
 
     def __str__(self):
@@ -36,17 +36,19 @@ class Social(models.Model):
     enabled = models.BooleanField(verbose_name="Отображать на страницах сайта?")
     link = models.CharField(max_length=255,verbose_name="Аккаунт")
     class Meta:
-        verbose_name = 'Социальные сети'
-        verbose_name_plural = 'Социальная сеть'
+        verbose_name = 'аккаунт социальной сети'
+        verbose_name_plural = 'Социальные сети'
     def __str__(self):
         return self.name
 
 class Menu(models.Model):
     name = models.CharField(max_length=20,verbose_name="Пункт меню")
+    # order = models.PositiveIntegerField(verbose_name="Позиция пункта в меню",help_text="Позиция 0 самая левая, позиция 10 - самая правая")
     enabled = models.BooleanField(verbose_name="Отображать в меню")
     link = models.CharField(max_length=255,verbose_name="Ссылка на страницу")
     class Meta:
-        verbose_name = 'Пункты меню'
-        verbose_name_plural = 'Пункт меню'
+        verbose_name = 'пункт меню'
+        verbose_name_plural = 'Пункты меню'
+        #ordering = ['order']
     def __str__(self):
         return self.name
