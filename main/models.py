@@ -40,3 +40,13 @@ class Social(models.Model):
         verbose_name_plural = 'Социальная сеть'
     def __str__(self):
         return self.name
+
+class Menu(models.Model):
+    name = models.CharField(max_length=20,verbose_name="Пункт меню")
+    enabled = models.BooleanField(verbose_name="Отображать в меню")
+    link = models.CharField(max_length=255,verbose_name="Ссылка на страницу")
+    class Meta:
+        verbose_name = 'Пункты меню'
+        verbose_name_plural = 'Пункт меню'
+    def __str__(self):
+        return self.name

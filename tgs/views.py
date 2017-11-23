@@ -13,4 +13,6 @@ def home(request):
             'social_list': social_list,
             'catalog_list': catalog_list,
             }
-    return render(request,'tgs/index.html',context)
+    return render(request,
+                'tgs/index.html'
+                ,context)

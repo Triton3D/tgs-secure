@@ -1,0 +1,30 @@
+<!-- Catalog menu - start -->
+<div class="topcatalog">
+     <a class="topcatalog-btn" href="catalog"><span></span>Каталоги</a>
+     <ul class="topcatalog-list">
+     {% for catalog in catalog_list %}
+        <li>
+			<a href="catalog/{{ catalog.slug }}">
+			    {{ catalog.name }} 
+            </a>
+            <i class="fa fa-angle-right"></i>
+            <ul>
+	        {% for category in catalog.category_set.all %}
+                <li>
+					<a href="catalog/{{ catalog.slug}}/{{ category.slug }}">
+					    {{ category.name }}
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        </li>
+     {% endfor %}
+    </ul>
+</div>
+<!-- Catalog menu - end -->
+
+
+
+
+
+            
