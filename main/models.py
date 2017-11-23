@@ -43,10 +43,12 @@ class Social(models.Model):
 
 class Menu(models.Model):
     name = models.CharField(max_length=20,verbose_name="Пункт меню")
+    # order = models.PositiveIntegerField(verbose_name="Позиция пункта в меню",help_text="Позиция 0 самая левая, позиция 10 - самая правая")
     enabled = models.BooleanField(verbose_name="Отображать в меню")
     link = models.CharField(max_length=255,verbose_name="Ссылка на страницу")
     class Meta:
         verbose_name = 'пункт меню'
         verbose_name_plural = 'Пункты меню'
+        #ordering = ['order']
     def __str__(self):
         return self.name
