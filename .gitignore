@@ -54,8 +54,8 @@ coverage.xml
 *.log
 local_settings.py
 local_settings_rus.py
-settings.py
-manage.py
+#settings.py
+#manage.py
 
 # Flask stuff:
 instance/
@@ -102,3 +102,9 @@ ENV/
 
 # mypy
 .mypy_cache/
+# configs for nginx uwsgi supervisor
+configs/
+# db
+db/
+#ssl
+ssl/
