@@ -42,13 +42,21 @@ class Social(models.Model):
         return self.name
 
 class Menu(models.Model):
+    MENU_POSITION = (
+        (0,'Первая'),
+        (1,'Вторая'),
+        (2,'Третья'),
+        (3,'Четвертая'),
+        (4,'Пятая'),
+        (5,'Шестая'),
+        (6,'Седьмая'),)
     name = models.CharField(max_length=20,verbose_name="Пункт меню")
-    # order = models.PositiveIntegerField(verbose_name="Позиция пункта в меню",help_text="Позиция 0 самая левая, позиция 10 - самая правая")
+    order_p = models.PositiveIntegerField(default=0,unique=True,choices=MENU_POSITION,verbose_name="Позиция пункта в меню",help_text="Первая позиция - крайняя левая, Шестая - крайняя правая",)
     enabled = models.BooleanField(verbose_name="Отображать в меню")
-    link = models.CharField(max_length=255,verbose_name="Ссылка на страницу")
+    link = models.CharField(max_length=255,verbose_name="Ссылка на страницу",validators=[RegexValidator(regex=r'^((([a-z]|[0-9])+|([a-z]|\_)+)|\/)+$')],help_text="")
     class Meta:
         verbose_name = 'пункт меню'
         verbose_name_plural = 'Пункты меню'
-        #ordering = ['order']
+        ordering = ['order_p']
     def __str__(self):
-        return self.name
+        return str(self.order_p+1)+": "+self.name
