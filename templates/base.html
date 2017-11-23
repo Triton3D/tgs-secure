@@ -31,9 +31,16 @@
 
 </header>
 <!-- Header - end -->
-{% block content %}
-{% endblock %}
-{% include "main/footer.html" %}
+<!-- Main - start -->
+    <main>
+
+        <section class="container">
+            {% block content %}
+            {% endblock %}
+            {% include "main/footer.html" %}
+        </section>
+    </main>    
+<!--- Main - end -->
 
 <!-- jQuery plugins/scripts - start -->
 <script src="{% static "js/jquery-1.11.2.min.js" %}"></script>
