@@ -54,6 +54,7 @@ coverage.xml
 *.log
 local_settings.py
 local_settings_rus.py
+rustam_settings.py
 settings.py
 manage.py
 
