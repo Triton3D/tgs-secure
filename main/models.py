@@ -59,4 +59,5 @@ class Menu(models.Model):
         verbose_name_plural = 'Пункты меню'
         ordering = ['order_p']
     def __str__(self):
+#        return self.name
         return str(self.order_p+1)+": "+self.name
