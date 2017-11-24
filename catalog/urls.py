@@ -13,15 +13,11 @@ from . import views
 
 app_name = 'catalog'
 urlpatterns = [
-#   url(r'^$', views.product_list, name='product_list'),
-#   url(r'^$',views.index,name='index'),
-
 # example: /catalogs
     url(r'^$',views.catalogs,name='catalogs'),
+			]
     # url(r'^(?P<catalog_slug>[a-zA-Z]+)/$',views.catalog_list,name='catalog_list'),
-    # url(r'^(?P<catalog_slug>[a-zA-Z]+)/(?P<category_slug>[a-zA-Z]+)/$',views.category_list,name='category_list'),
-    ]
-
+    # url(r'^(?P<catalog_slug>[a-zA-Z]+)/(?P<category_slug>[a-zA-Z]+)/$',views.category_list,name='category_list'),    
     # url(r'^$',views.catalog_list,name='catalog_list'),
     # url(r'^(?P<catalog_slug>[a-zA-Z]+)/$',views.catalog_list,name='category_list'),
     # url(r'^(?P<category_slug>[a-zA-Z]+)/$',views.category_list,name='product_list'),
