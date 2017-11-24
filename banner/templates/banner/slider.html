@@ -1,9 +1,10 @@
 <!-- Slider -->
+{% load static %}
 <div class="fr-slider-wrap">
     <div class="fr-slider">
 	<ul class="slides">
 	    <li>
-		<img src="{{ static "img/slider/slide1.jpg" }}"  alt="">
+		<img src="{% static "img/slider/slide1.jpg" %}"  alt="">
 		<div class="fr-slider-cont">
 		    <h3>MEGA SALE -30%</h3>
 		    <p>Winter collection for women's. <br>We all have choices for you. Check it out!</p>
@@ -13,7 +14,7 @@
 		</div>
 	    </li>
 	    <li>
-		<img src="{{ static "img/slider/slide1.jpg" }}" alt="">
+		<img src="{% static "img/slider/slide1.jpg" %}" alt="">
 		<div class="fr-slider-cont">
 		    <h3>NEW COLLECTION</h3>
 		    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br>Aliquam consequuntur dolorem doloribus fuga harum</p>
@@ -23,7 +24,7 @@
 		</div>
 	    </li>
 	    <li>
-		<img src="{{ static "img/slider/slide1.jpg" }}" alt="">
+		<img src="{% static "img/slider/slide1.jpg" %}" alt="">
 		<div class="fr-slider-cont">
 		    <h3>SUMMER TRENDS</h3>
 		    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br>Aliquam consequuntur dolorem doloribus fuga harum</p>
