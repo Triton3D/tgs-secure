@@ -53,8 +53,8 @@ coverage.xml
 # Django stuff:
 *.log
 local_settings.py
-local_settings_rus.py
 rustam_settings.py
+local_settings_rus.py
 settings.py
 manage.py
 
@@ -103,3 +103,9 @@ ENV/
 
 # mypy
 .mypy_cache/
+# configs for nginx uwsgi supervisor
+configs/
+# db
+db/
+#ssl
+ssl/
