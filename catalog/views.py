@@ -2,8 +2,16 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from catalog.models import Catalog, Category, Product
 
-def index(request):
-    return HttpResponse('Catalog') 
+def catalogs(request):
+    catalogs = Catalog.objects.all()
+    categorys = Category.objects.all()
+    products = Product.objects.all()
+
+    context = {'catalogs' : catalogs,
+                'categorys' : categorys,
+                'products' : products,
+                }
+    return render (request,'catalog/catalog_list.html',context)
 
 def catalog_list(request,catalog_slug):
     catalogs = Catalog.objects.all()
