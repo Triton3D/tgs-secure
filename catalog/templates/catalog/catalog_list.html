@@ -1,0 +1,16 @@
+<div class="section-cont container">
+	<div class="prod-items section-items">
+		{% for catalog in catalog_list %}
+		<div class="prodlist-i">
+			<a class="prodlist-i-img" href="product.html"><!-- NO SPACE --><img src="http://placehold.it/300x311" alt="Adipisci aperiam commodi"><!-- NO SPACE --></a>
+			<div class="prodlist-i-cont">
+				<h3><a href="catalog/{{ catalog.link }}">{{ catalog.name }}</a></h3>
+				<div class="prodlist-i-txt">
+					{{ catalog.description}}				
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+

@@ -1,0 +1,58 @@
+<ul class="b-crumbs">
+            <li>
+                <a href="/">
+                    Главная
+                </a>
+            </li>
+
+            {% if catalog.name and not category.name %}
+                <li>
+                    <a href="catalogs">
+                        Каталоги
+                    </a>
+                </li>
+                <li>
+                    <span>{{ catalog.name }}</span>
+                </li>
+            
+            {% endif %}
+
+            {% if catalog.name and category.name and not product.name %}
+                <li>
+                    <a href="catalogs">
+                        Каталоги
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ catalog.link }}">
+                        {{ catalog.name }}
+                    </a>
+                </li>
+                <li>
+                    <span>{{ category.name }}</span>
+                </li>
+
+             {% endif %}
+
+             {% if catalog.name and category.name and product.name %}
+                <li>
+                    <a href="catalogs">
+                        Каталоги
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ catalog.link }}">
+                        {{ catalog.name }}
+                    </a>
+                </li>
+                 <li>
+                    <a href="{{ category.link }}">
+                        {{ category.name }}
+                    </a>
+                </li>
+                <li>
+                    <span>{{ product.name }}</span>
+                </li>
+
+             {% endif %}
+        </ul>
