@@ -3,8 +3,8 @@ from main.models import Phone,Email,Social,Menu
 from catalog.models import Catalog, Category, Product
 
 def home(request):
-    phone = Phone.objects.get(name="Основной")
-    email = Email.objects.get(name="Основной")
+    phone = Phone.objects.get(name="Основной") #Maybe use TRY: construction and disable name changing
+    email = Email.objects.get(name="Основной")#Maybe use TRY: construction and disable name changing
     social_list = Social.objects.all()
     catalog_list = Catalog.objects.all()
     menu_items = Menu.objects.all()

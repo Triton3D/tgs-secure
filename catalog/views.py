@@ -3,11 +3,11 @@ from django.http import HttpResponse
 from catalog.models import Catalog, Category, Product
 
 def catalogs(request):
-    catalogs = Catalog.objects.all()
+    catalog_list = Catalog.objects.all()
     categorys = Category.objects.all()
     products = Product.objects.all()
 
-    context = {'catalogs' : catalogs,
+    context = {'catalog_list': catalog_list,
                 'categorys' : categorys,
                 'products' : products,
                 }
