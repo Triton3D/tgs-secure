@@ -4,7 +4,7 @@
      <ul class="topcatalog-list">
      {% for catalog in catalog_list %}
         <li>
-			<a href="catalogs">
+			<a href="catalog/{{ catalog.slug }}">
 			    {{ catalog.name }} 
             </a>
             <i class="fa fa-angle-right"></i>

@@ -2,16 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from catalog.models import Catalog, Category, Product
 
-def catalogs(request):
-    catalog_list = Catalog.objects.all()
-    categorys = Category.objects.all()
-    products = Product.objects.all()
-
-    context = {'catalog_list': catalog_list,
-                'categorys' : categorys,
-                'products' : products,
-                }
-    return render (request,'catalog/catalog_list.html',context)
 
 def catalog_list(request,catalog_slug):
     catalogs = Catalog.objects.all()
@@ -51,3 +41,14 @@ def category_list(request,category_slug,catalog_slug):
 #     'product' : product,}
 #     return render(request,'catalog/product.html',context)
 
+##Rustam tested this and it was bad idea <<<<<<<<<<<<<<<<<<<
+# def catalogs(request):
+#     catalog_list = Catalog.objects.all()
+#     categorys = Category.objects.all()
+#     products = Product.objects.all()
+
+#     context = {'catalog_list': catalog_list,
+#                 'categorys' : categorys,
+#                 'products' : products,
+#                 }
+#     return render (request,'catalog/catalog_list.html',context)
