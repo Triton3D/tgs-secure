@@ -13,12 +13,14 @@
                     <li class="categ-1">
                         <a href="catalog-list.html">
                             <span class="categ-1-label">{{category.name}}</span>
+                            <span class="section-sb-toggle"><span class="section-sb-ico"></span></span>
                         </a>
+
                     </li>
 
                     {% endfor %}
 
-                    <li class="categ-1 has_child">
+                    <!-- <li class="categ-1 has_child">
                         <a href="catalog-list.html">
                             <span class="categ-1-label">Сумки</span>
                             <span class="section-sb-toggle"><span class="section-sb-ico"></span></span>
@@ -35,8 +37,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
-
+                    </li> -->
                 </ul>
             </div>
             {% endfor%}
@@ -552,15 +553,16 @@
             <div class="prod-items section-items">
 
                 {% for catalog in catalog_list %}
-
-                <div class="prod-i">
-                    <div class="prod-i-top">
-                        <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="{% static "1.jpg" %}" alt="{{catalog.name}} коллекция"><!-- NO SPACE --></a>
-                    </div>
-                    <h3>
-                        <a href="product.html">{{catalog.name}}</a>
-                    </h3>
-                </div>
+                    {% for category in catalog.category_set.all %}
+                        <div class="prod-i">
+                            <div class="prod-i-top">
+                                <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="{% static "1.jpg" %}" alt="{{categoty.name}}"><!-- NO SPACE --></a>
+                            </div>
+                            <h3>
+                                <a href="product.html">{{category.name}}</a>
+                            </h3>
+                        </div>
+                    {% endfor %}
                 {% endfor %}
             </div>
         </div>
