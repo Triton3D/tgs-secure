@@ -35,17 +35,18 @@ class Category(models.Model):
 
 @python_2_unicode_compatible
 class Product(models.Model):
+        category = models.ForeignKey('Category', related_name = 'products')
         name = models.CharField(max_length=300, verbose_name = "Наименование")
         slug = models.SlugField(max_length=150, verbose_name="Ссылка")
         description = models.TextField(blank=True,verbose_name='Описание')
         img1 = models.ImageField(upload_to='img/products/%Y/%m/%d', blank=True, verbose_name="Изображение 1")
         img2 = models.ImageField(upload_to='img/products/%Y/%m/%d', blank=True, verbose_name="Изображение 2")
         img3 = models.ImageField(upload_to='img/products/%Y/%m/%d', blank=True, verbose_name="Изображение 3")
-        price = models.DecimalField(max_digits=8, decimal_places=2,verbose_name='Цена')
+        price = models.PositiveIntegerField(verbose_name='Цена в рублях, без копеек')
         available = models.BooleanField(default=True,verbose_name='В наличии')
         sku = models.CharField(max_length = 10, verbose_name='Артикул')
-        catalog = models.ManyToManyField(Catalog, verbose_name = "Каталог") 
-        category = models.ManyToManyField(Category, verbose_name = "Категория") 
+#        catalog = models.ManyToManyField(Catalog, verbose_name = "Каталог") 
+#           category = models.ManyToManyField(Category, verbose_name = "Категория") 
 
         class Meta:
             ordering = ('name',)
