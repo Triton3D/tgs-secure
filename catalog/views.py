@@ -27,7 +27,7 @@ def category_list(request,category_slug,catalog_slug):
                 'category_list' : category_list,
                 'product_list' : product_list,
                 }
-    return render (request,'catalog/catalog_list.html',context)
+    return render (request,'catalog/category_list.html',context)
     #return HttpResponse("CATALOG: %s, CATEGORY %s " % (catalog_slug, category_slug,))
 
 
