@@ -4,12 +4,12 @@ from catalog.models import Catalog, Category, Product
 
 
 def catalog_list(request,catalog_slug):
-    catalogs = Catalog.objects.all()
+    catalog_list = Catalog.objects.all()
     current_catalog = Catalog.objects.get(slug=catalog_slug)
-    categorys = Category.objects.all()
-    products = Product.objects.all()
+    categorys = Category.objects.all() #change to category_list
+    products = Product.objects.all() #change to product_list
 
-    context = {'catalogs' : catalogs,
+    context = {'catalog_list' : catalog_list,
                 'current_catalog' : current_catalog,
                 'categorys' : categorys,
                 'products' : products,
