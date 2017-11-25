@@ -4,84 +4,39 @@
 {% load static %}
 
         <div class="section-sb">
-            {% for catalog in catalogs%}
+            {% for catalog in catalog_list%}
             <!-- Catalog Categories - start -->
             <div class="section-sb-current">
                 <h3><a href="catalog-list.html">{{current_catalog.name}} <span id="section-sb-toggle" class="section-sb-toggle"><span class="section-sb-ico"></span></span></a></h3>
                 <ul class="section-sb-list" id="section-sb-list">
-                    {% for category in categoys%}
+                    {% for category in catalog.category_set.all %}
                     <li class="categ-1">
                         <a href="catalog-list.html">
                             <span class="categ-1-label">{{category.name}}</span>
                         </a>
                     </li>
-                    <li class="categ-1 has_child">
-                        <a href="catalog-list.html">
-                            <span class="categ-1-label">Bags</span>
-                            <span class="section-sb-toggle"><span class="section-sb-ico"></span></span>
-                        </a>
-                        <ul>
-                            <li class="categ-2">
-                                <a href="catalog-list.html">
-                                    <span class="categ-2-label">Shoulder Bags</span>
-                                </a>
-                            </li>
-                            <li class="categ-2">
-                                <a href="catalog-list.html">
-                                    <span class="categ-2-label">Falabella</span>
-                                </a>
-                            </li>
-                            <li class="categ-2">
-                                <a href="catalog-list.html">
-                                    <span class="categ-2-label">Becks</span>
-                                </a>
-                            </li>
-                            <li class="categ-2">
-                                <a href="catalog-list.html">
-                                    <span class="categ-2-label">Clutches</span>
-                                </a>
-                            </li>
-                            <li class="categ-2">
-                                <a href="catalog-list.html">
-                                    <span class="categ-2-label">Travel Bags</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="categ-1 has_child">
-                        <a href="catalog-list.html">
-                            <span class="categ-1-label">Accessories</span>
-                            <span class="section-sb-toggle"><span class="section-sb-ico"></span></span>
-                        </a>
-                        <ul>
-                            <li class="categ-2">
-                                <a href="catalog-list.html">
-                                    <span class="categ-2-label">Sunglasses</span>
-                                </a>
-                            </li>
-                            <li class="categ-2">
-                                <a href="catalog-list.html">
-                                    <span class="categ-2-label">Tech Cases</span>
-                                </a>
-                            </li>
-                            <li class="categ-2">
-                                <a href="catalog-list.html">
-                                    <span class="categ-2-label">Jewelry</span>
-                                </a>
-                            </li>
-                            <li class="categ-2">
-                                <a href="catalog-list.html">
-                                    <span class="categ-2-label">Stella</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="categ-1">
-                        <a href="catalog-list.html">
-                            <span class="categ-1-label">Coats & Jackets</span>
-                        </a>
-                    </li>
+
                     {% endfor %}
+
+                    <li class="categ-1 has_child">
+                        <a href="catalog-list.html">
+                            <span class="categ-1-label">Сумки</span>
+                            <span class="section-sb-toggle"><span class="section-sb-ico"></span></span>
+                        </a>
+                        <ul>
+                            <li class="categ-2">
+                                <a href="catalog-list.html">
+                                    <span class="categ-2-label">Кожа</span>
+                                </a>
+                            </li>
+                            <li class="categ-2">
+                                <a href="catalog-list.html">
+                                    <span class="categ-2-label">Кожзам</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                 </ul>
             </div>
             {% endfor%}
@@ -596,7 +551,7 @@
             <!-- Catalog Topbar - end -->
             <div class="prod-items section-items">
 
-                {% for product in products %}
+                {% for catalog in catalog_list %}
 
                 <div class="prod-i">
                     <div class="prod-i-top">

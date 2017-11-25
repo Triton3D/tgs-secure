@@ -18,10 +18,10 @@ def catalog_list(request,catalog_slug):
 
 def category_list(request,category_slug,catalog_slug):
     catalog_list = Catalog.objects.all()
-    current_catalog = Catalog.objects.get(slug=catalog_slug)
-    category_list = Category.objects.all() #change to category_list
-    product_list = Product.objects.all() #change to product_list
-
+    current_catalog = Catalog.objects.get(slug=catalog_slug) #change to try
+    category_list = Category.objects.all()
+    product_list = Product.objects.all()
+    
     context = {'catalog_list' : catalog_list,
                 'current_catalog' : current_catalog,
                 'category_list' : category_list,
