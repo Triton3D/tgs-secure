@@ -22,13 +22,14 @@ def category_list(request,category_slug,catalog_slug):
     current_category = Category.objects.get(slug=category_slug) #change to try
     category_list = Category.objects.all()
     product_list = Product.objects.all()
-    filtered_product_list = Product.objects.all().filter()
+    filtered_product_list = Product.objects.all().filter(category__slug=category_slug)
     
     context = {'catalog_list' : catalog_list,
                 'current_catalog' : current_catalog,
                 'current_category' : current_category,
                 'category_list' : category_list,
                 'product_list' : product_list,
+                'filtered_product_list' : filtered_product_list,
                 }
     return render (request,'catalog/category_list.html',context)
     #return HttpResponse("CATALOG: %s, CATEGORY %s " % (catalog_slug, category_slug,))

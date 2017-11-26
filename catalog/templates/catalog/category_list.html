@@ -2,6 +2,9 @@
 {% block title %} {{current_category.name}} {% endblock %}
 {% block content %}
     {% load static %}
+    {%for product in filtered_product_list%}
+    <h1>{{product.name}}</h1>
+    {%endfor%}
         <div class="section-sb">
             {% for catalog in catalog_list%}
                 <!-- Catalog Categories - start -->
