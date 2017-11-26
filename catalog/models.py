@@ -25,6 +25,10 @@ class Category(models.Model):
         slug = models.SlugField(max_length=255, verbose_name = "Ссылка")
         description = RichTextField(blank=True, verbose_name = "Описание категории")
         catalog = models.ManyToManyField(Catalog,verbose_name = "Каталог")
+        img1 = models.ImageField(
+            upload_to='img/catalog/',
+            blank=True,
+            verbose_name="Картинка категории")
             
         class Meta:
             ordering = ('name',)
