@@ -13,17 +13,17 @@
 					<ul class="prod-slider-car">
 						<li>
 							<a data-fancybox-group="product" class="fancy-img" href="#">
-								<img src="{% static  current_product.img1  %}" alt="">
+								<img src="{% static current_product.img1%}" alt="">
 							</a>
 						</li>
 						<li>
 							<a data-fancybox-group="product" class="fancy-img" href="#">
-								{#<img src="{% static  current_product.img2  %}" alt=""> #}
+								{#<img src="{% static current_product.img2%}" alt=""> #}
 							</a>
 						</li>
 						<li>
 							<a data-fancybox-group="product" class="fancy-img" href="#">
-								<img src="{% static  current_product.img3  %}" alt="">
+								<img src="{% static current_product.img3%}" alt="">
 							</a>
 						</li>
 					</ul>
@@ -32,17 +32,17 @@
 					<ul class="prod-thumbs-car">
 						<li>
 							<a data-slide-index="0" href="#">
-								<img src="{% static current_product.img1 %}" alt="">
+								<img src="{% static current_product.img3%}" alt="">
 							</a>
 						</li>
 						<li>
 							<a data-slide-index="1" href="#">
-								<img src="{% static current_product.img2 %}" alt="">
+								<img src="{% static current_product.img3%}" alt="">
 							</a>
 						</li>
 						<li>
 							<a data-slide-index="2" href="#">
-								<img src="{% static current_product.img3 %}" alt="">
+								<img src="{% static current_product.img3%}" alt="">
 							</a>
 						</li>
 						
@@ -100,9 +100,9 @@
 
 				<div class="prod-info">
 					<p class="prod-price">
-						<b class="item_current_price">{{ product.price }}</b>
+						<b class="item_current_price">{{ current_product.price }} рублей</b>
 					</p>
-					{% if product.available %}
+					{% if current_product.available %}
 					<p class="prod-qnt">
 						<input value="1" type="text">
 						<a href="#" class="prod-plus"><i class="fa fa-angle-up"></i></a>
@@ -115,7 +115,7 @@
 				</div>
 				<ul class="prod-i-props">
 					<li>
-						<b>SKU</b> 05464207
+						<b>SKU</b> {{ current_product.sku }}
 					</li>
 					<li>
 						<b>Material</b> Nylon
