@@ -8087,7 +8087,8 @@ body .component-desc.component-desc-ct {
 }
 .banner-i .banner-i-cont {
 	position: absolute;
-	color: #373d54;
+	/*color: #373d54;*/
+	color: #D7B46C;
 	font-size: 13px;
 	top: 0;
 	left: 10px;
@@ -8132,7 +8133,8 @@ body .component-desc.component-desc-ct {
 	margin: 24px 0 35px;
 }
 .banner-i .banner-i-link a {
-	background: #373d54;
+	/*background: #373d54;*/
+	background:  #D7B46C;
 	font-size: 12px;
 	text-transform: uppercase;
 	color: #fff;
@@ -8144,6 +8146,7 @@ body .component-desc.component-desc-ct {
 }
 .banner-i .banner-i-link a:hover {
 	background: #474f6e;
+	background: #F9C670;
 }
 .banners-list .banner-i.style_11,
 .banners-list .banner-i.style_12 {
@@ -8161,7 +8164,8 @@ body .component-desc.component-desc-ct {
 	top: 50%;
 	padding: 47px 0 0 40px;
 	left: auto;
-	background: rgba(55,61,84,0.9);
+	/*background: rgba(55,61,84,0.5);*/
+	background: #D7B46C99;
 	-ms-transform: translate(0, -50%);
 	-o-transform: translate(0, -50%);
 	-moz-transform: translate(0, -50%);

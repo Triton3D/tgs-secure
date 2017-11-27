@@ -25,6 +25,10 @@ class Category(models.Model):
         slug = models.SlugField(max_length=255, verbose_name = "Ссылка")
         description = RichTextField(blank=True, verbose_name = "Описание категории")
         catalog = models.ManyToManyField(Catalog,verbose_name = "Каталог")
+        img1 = models.ImageField(
+            upload_to='img/catalog/',
+            blank=True,
+            verbose_name="Картинка категории")
             
         class Meta:
             ordering = ('name',)
@@ -39,12 +43,12 @@ class Product(models.Model):
         name = models.CharField(max_length=300, verbose_name = "Наименование")
         slug = models.SlugField(max_length=150, verbose_name="Ссылка")
         description = models.TextField(blank=True,verbose_name='Описание')
-        img1 = models.ImageField(upload_to='img/products/%Y/%m/%d', blank=True, verbose_name="Изображение 1")
-        img2 = models.ImageField(upload_to='img/products/%Y/%m/%d', blank=True, verbose_name="Изображение 2")
-        img3 = models.ImageField(upload_to='img/products/%Y/%m/%d', blank=True, verbose_name="Изображение 3")
+        img1 = models.ImageField(upload_to='static/img/products/%Y/%m/%d', blank=True, verbose_name="Изображение 1")
+        img2 = models.ImageField(upload_to='static/img/products/%Y/%m/%d', blank=True, verbose_name="Изображение 2")
+        img3 = models.ImageField(upload_to='static/img/products/%Y/%m/%d', blank=True, verbose_name="Изображение 3")
         price = models.PositiveIntegerField(verbose_name='Цена в рублях, без копеек')
         available = models.BooleanField(default=True,verbose_name='В наличии')
-        sku = models.CharField(max_length = 10, verbose_name='Артикул')
+        sku = models.CharField(max_length = 10, unique = True, verbose_name='Артикул',help_text="Уникальность проверяется автоматически")
 #        catalog = models.ManyToManyField(Catalog, verbose_name = "Каталог") 
 #           category = models.ManyToManyField(Category, verbose_name = "Категория") 
 

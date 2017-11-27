@@ -81,29 +81,28 @@ TEMPLATES = [
 WSGI_APPLICATION = 'tgs.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'HOST':'localhost',
-#         'NAME': 'tgsdb',
-#         'USER':'tgs',
-#         'PASSWORD':'trewqazx',
-#         'PORT':'5432',
-        
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'mydatabase',
 #     }
 # }
-
+#print('DATABASES variable set to use sqlite3')
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase',
-    }
-}
-print('DATABASES variable set to use sqlite3')
+     'default': {
+         'ENGINE': 'django.db.backends.postgresql',
+         'HOST':'localhost',
+         'NAME': 'tgs-test',
+         'USER':'tgs',
+         'PASSWORD':'trewqazx',
+         'PORT':'5432',
+        
+     }
+ }
 
+# from main.test import fill_db
+# fild_db()
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators

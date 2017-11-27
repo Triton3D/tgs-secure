@@ -556,7 +556,7 @@
                     {% for category in catalog.category_set.all %}
                         <div class="prod-i">
                             <div class="prod-i-top">
-                                <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="{% static "1.jpg" %}" alt="{{categoty.name}}"><!-- NO SPACE --></a>
+                                <a href="product.html" class="prod-i-img"><!-- NO SPACE --><img src="{% static category.img1 %}" alt="{{categoty.name}}"><!-- NO SPACE --></a>
                             </div>
                             <h3>
                                 <a href="product.html">{{category.name}}</a>
