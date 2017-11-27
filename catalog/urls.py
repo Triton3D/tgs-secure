@@ -15,10 +15,14 @@ app_name = 'catalog'
 urlpatterns = [
 # example: /catalogs
     url(r'^$',views.catalog_list,name='catalog_list'),
-    url(r'^(?P<catalog_slug>[a-zA-Z]+)/$',views.catalog_list,name='catalog_list'),
-    url(r'^(?P<catalog_slug>[a-zA-Z]+)/(?P<category_slug>[a-zA-Z]+)$',views.category_list,name='category_list'),
 
-    url(r'^(?P<catalog_slug>[a-zA-Z]+)/(?P<category_slug>[a-zA-Z]+)/(?P<product_slug>[a-zA-Z]+)/$',views.product_card,name='product_card'),
+    url(r'^(?P<catalog_slug>[a-zA-Z]+)/$',views.catalog_list,name='catalog_list'),
+
+    #url(r'^(?P<catalog_slug>[a-zA-Z]+)/(?P<category_slug>[a-zA-Z]+)$',views.category_list,name='category_list'),
+    url(r'^(?P<category_slug>[a-zA-Z]+)$',views.category_list,name='category_list'),
+
+    #url(r'^(?P<catalog_slug>[a-zA-Z]+)/(?P<category_slug>[a-zA-Z]+)/(?P<product_slug>[a-zA-Z]+)/$',views.product_card,name='product_card'),
+    url(r'^(?P<product_slug>[a-zA-Z]+)/$',views.product_card,name='product_card'),
     ]
     # url(r'^(?P<catalog_slug>[a-zA-Z]+)/$',views.catalog_list,name='catalog_list'),
     # url(r'^(?P<catalog_slug>[a-zA-Z]+)/(?P<category_slug>[a-zA-Z]+)/$',views.category_list,name='category_list'),    
