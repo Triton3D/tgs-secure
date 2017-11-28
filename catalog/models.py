@@ -43,11 +43,7 @@ class Product(models.Model):
         name = models.CharField(max_length=300, verbose_name = "Наименование")
         slug = models.SlugField(max_length=150, verbose_name="Ссылка")
         description = models.TextField(blank=True,verbose_name='Описание')
-<<<<<<< HEAD
-        img1 = models.ImageField(upload_to='static/img/products/%Y/%m/%d', blank=True, verbose_name="Изображение 1")
-        img2 = models.ImageField(upload_to='static/img/products/%Y/%m/%d', blank=True, verbose_name="Изображение 2")
-        img3 = models.ImageField(upload_to='static/img/products/%Y/%m/%d', blank=True, verbose_name="Изображение 3")
-=======
+
         material = models.ForeignKey('ProductMaterial',
             related_name = 'product',
             on_delete = models.CASCADE)
@@ -72,7 +68,7 @@ class Product(models.Model):
             upload_to='static/img/products/%Y/%m/%d',
             blank=True,
             verbose_name="Изображение 3")
->>>>>>> 6b96eee4ceec9a26dbf928a398af434f6fd664a0
+
         price = models.PositiveIntegerField(verbose_name='Цена в рублях, без копеек')
         available = models.BooleanField(default=True,verbose_name='В наличии')
         sku = models.CharField(

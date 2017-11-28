@@ -1,18 +1,11 @@
-{% extends "base.html" %}
+{% extends "main/base.html" %}
 {% block title %} Кожа и меха Tigers. Официальный сайт. Интернет-магазин. Шубы, куртки, дубленки и пуховики в Челябинске. {% endblock %}
 {% block content %}
     {% include 'banner/banner.html' %}
-    
-
-    {% comment "We will use this later" %}
-
-        {% include 'catalog/topproduct.html' %} 
-        {% include 'banner/slider.html' %#}
-        {% include 'catalog/specialoffers.html' }
-
-    {% endcomment %}
-    
-    
-    
+{% comment %}
+    	{% include 'catalog/topproduct.html' %}
+        {% include 'banner/slider.html' %}
+        {% include 'catalog/specialoffers.html' %}
+{% endcomment %}
 {% endblock %}
 
