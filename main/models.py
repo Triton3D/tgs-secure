@@ -3,7 +3,7 @@ from django.core.validators import RegexValidator,EmailValidator
 # Create your models here.
 
 class Phone(models.Model):
-    name = models.CharField(max_length=255, default='Основной',unique=True,verbose_name="Название",help_text="Должно быть: Основной")
+    name = models.CharField(max_length=255, default='Основной',unique=True,verbose_name="Название",help_text="Должно быть: Основной",blank=True)
     #не менять name, особенное поле default = 'Основной'
     number = models.CharField(max_length=15,unique=True,verbose_name="Номер телефона",help_text="Введите номер телефона используя следующий формат: +Х(ХХХ)ХХХ-ХХ-ХХ или X XXX XXX XX XX ",validators=[RegexValidator(regex=r'^(\+\d{1}|\d)(\ \d{3}\ |\(\d{3}\))(\d{3}\-\d{2}\-\d{2}|\d{3}\ \d{2}\ \d{2})$',)])
     link = models.CharField(max_length=255,default="tel:",verbose_name="Ссылка",help_text="")
@@ -15,7 +15,7 @@ class Phone(models.Model):
         return self.name
 
 class Email(models.Model):
-    name = models.CharField(max_length=255, default='Основной',unique=True,verbose_name="Название")
+    name = models.CharField(max_length=255, default='Основной',unique=True,verbose_name="Название",blank=True)
     #не менять name, особенное поле default = 'Основной'
     email = models.CharField(max_length=255,unique=True,verbose_name="Адрес электронной почты (e-mail)",validators=[EmailValidator()])
     link = models.CharField(max_length=255,default="mailto:",verbose_name="Ссылка")
@@ -34,7 +34,7 @@ class Social(models.Model):
            # ('Odnoklassniki','Odnoklassniki'),
             ('Twitter','Twitter'),
             )
-    name = models.CharField(max_length=60,choices=SOCIAL_LIST,verbose_name="Социальная сеть")
+    name = models.CharField(max_length=60,choices=SOCIAL_LIST,verbose_name="Социальная сеть",blank=True)
     enabled = models.BooleanField(verbose_name="Отображать на страницах сайта?")
     link = models.CharField(max_length=255,verbose_name="Аккаунт")
     class Meta:
