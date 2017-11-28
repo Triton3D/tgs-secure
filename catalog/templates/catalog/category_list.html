@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %} {{current_category.name}} {% endblock %}
+{% block title %} category_list : {{current_category.name}} {% endblock %}
 {% block content %}
     {% load static %}
         <div class="section-sb">
@@ -552,7 +552,7 @@
                     {%for product in filtered_product_list%}
                         <div class="prod-i">
                             <div class="prod-i-top">
-                                <a href="{{current_category.slug}}/{{product.slug}}" class="prod-i-img"><!-- NO SPACE --><img src="{% static product.img1 %}" alt="{{product.name}}"><!-- NO SPACE --></a>
+                                <a href="{{product.slug}}" class="prod-i-img"><!-- NO SPACE --><img src="{% static product.img1 %}" alt="{{product.name}}"><!-- NO SPACE --></a>
                             </div>
                             <h3>
                                 <a href="product.html">{{product.name}}</a>

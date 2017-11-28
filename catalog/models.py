@@ -26,7 +26,7 @@ class Category(models.Model):
         description = RichTextField(blank=True, verbose_name = "Описание категории")
         catalog = models.ManyToManyField(Catalog,verbose_name = "Каталог")
         img1 = models.ImageField(
-            upload_to='img/catalog/',
+            upload_to='static/img/category/',
             blank=True,
             verbose_name="Картинка категории")
             
@@ -43,14 +43,43 @@ class Product(models.Model):
         name = models.CharField(max_length=300, verbose_name = "Наименование")
         slug = models.SlugField(max_length=150, verbose_name="Ссылка")
         description = models.TextField(blank=True,verbose_name='Описание')
+<<<<<<< HEAD
         img1 = models.ImageField(upload_to='static/img/products/%Y/%m/%d', blank=True, verbose_name="Изображение 1")
         img2 = models.ImageField(upload_to='static/img/products/%Y/%m/%d', blank=True, verbose_name="Изображение 2")
         img3 = models.ImageField(upload_to='static/img/products/%Y/%m/%d', blank=True, verbose_name="Изображение 3")
+=======
+        material = models.ForeignKey('ProductMaterial',
+            related_name = 'product',
+            on_delete = models.CASCADE)
+        color = models.ForeignKey('ProductColor',
+            related_name = 'product',
+            on_delete = models.CASCADE)
+        size = models.ForeignKey('ProductSize',
+            related_name = 'product',
+            on_delete = models.CASCADE)
+        height = models.ForeignKey('ProductHeight',
+            related_name = 'product',
+            on_delete = models.CASCADE)
+        img1 = models.ImageField(
+            upload_to='static/img/products/%Y/%m/%d',
+            blank=True,
+            verbose_name="Изображение 1")
+        img2 = models.ImageField(
+            upload_to='static/img/products/%Y/%m/%d',
+            blank=True,
+            verbose_name="Изображение 2")
+        img3 = models.ImageField(
+            upload_to='static/img/products/%Y/%m/%d',
+            blank=True,
+            verbose_name="Изображение 3")
+>>>>>>> 6b96eee4ceec9a26dbf928a398af434f6fd664a0
         price = models.PositiveIntegerField(verbose_name='Цена в рублях, без копеек')
         available = models.BooleanField(default=True,verbose_name='В наличии')
-        sku = models.CharField(max_length = 10, unique = True, verbose_name='Артикул',help_text="Уникальность проверяется автоматически")
-#        catalog = models.ManyToManyField(Catalog, verbose_name = "Каталог") 
-#           category = models.ManyToManyField(Category, verbose_name = "Категория") 
+        sku = models.CharField(
+            max_length = 10,
+            unique = True,
+            verbose_name='Артикул',
+            help_text="Уникальность проверяется автоматически")
 
         class Meta:
             ordering = ('name',)
@@ -58,3 +87,83 @@ class Product(models.Model):
             verbose_name_plural = 'Товары'
         def __str__(self):
             return self.name
+
+
+@python_2_unicode_compatible
+class ProductMaterial(models.Model):
+    name = models.CharField(max_length=300, verbose_name = "Материал")
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'Материал'
+        verbose_name_plural= 'Материалы'
+
+        def __str__(self):
+            return self.name
+
+@python_2_unicode_compatible
+class ProductColor(models.Model):
+    name = models.CharField(max_length=300, verbose_name = "Цвет")
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'Цвет'
+        verbose_name_plural= 'Цвета'
+
+        def __str__(self):
+            return self.name
+
+@python_2_unicode_compatible
+class ProductSize(models.Model):
+    name = models.CharField(max_length=300, verbose_name = "Размер")
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'Размер'
+        verbose_name_plural= 'Размеры'
+
+        def __str__(self):
+            return self.name
+
+@python_2_unicode_compatible
+class ProductHeight(models.Model):
+    name = models.CharField(max_length=300, verbose_name = "Рост")
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'Рост'
+        verbose_name_plural= 'Ростовки'
+
+        def __str__(self):
+            return self.name
+
+# ниже много говнокода не в той модели указал foreign key, нужно в самой модели Product
+# @python_2_unicode_compatible
+# class ProductMaterial(models.Model):
+#     product = models.ForeignKey('Product',
+#         related_name = 'material',
+#         on_delete=models.CASCADE)
+#     name = models.CharField(max_length=300, verbose_name = "Материал")
+
+# @python_2_unicode_compatible
+# class ProductColor(models.Model):
+#     product = models.ForeignKey('Product',
+#         related_name = 'color',
+#         on_delete=models.CASCADE)
+#     name = models.CharField(max_length=300, verbose_name = "Цвет")
+
+# @python_2_unicode_compatible
+# class ProductSize(models.Model):
+#     product = models.ForeignKey('Product',
+#         related_name = 'size',
+#         on_delete=models.CASCADE)
+#     name = models.CharField(max_length=300, verbose_name = "Размер")
+
+# @python_2_unicode_compatible
+# class ProductHeight(models.Model):
+#     product = models.ForeignKey('Product',
+#         related_name = 'height',
+#         on_delete=models.CASCADE)
+#     name = models.CharField(max_length=300, verbose_name = "Рост")
+    
+# # Нужна ли длина самой одежды?
