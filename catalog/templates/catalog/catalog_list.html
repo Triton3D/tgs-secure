@@ -1,18 +1,18 @@
 {% extends "base.html" %}
-{% block title %} catalog_list : {{current_catalog.name}} {% endblock %}
+{% block title %} Каталоги {% endblock %}
 {% block content %}
 {% load static %}
 <!-- нужно сделать фильтр категорий -->
 
         <div class="section-sb">
-            {% for catalog in catalog_list%}
+            {% for catalog in catalog_list %}
             <!-- Catalog Categories - start -->
             <div class="section-sb-current">
-                <h3><a href="catalog-list.html">{{current_catalog.name}} <span id="section-sb-toggle" class="section-sb-toggle"><span class="section-sb-ico"></span></span></a></h3>
+                <h3><a href="/catalog/{{ catalog.slug }}">{{catalog.name}} <span id="section-sb-toggle" class="section-sb-toggle"><span class="section-sb-ico"></span></span></a></h3>
                 <ul class="section-sb-list" id="section-sb-list">
                     {% for category in catalog.category_set.all %}
                     <li class="categ-1">
-                        <a href="catalog-list.html">
+                        <a href="catalog/{{ catalog.slug }}/{{ category.slug }}/">
                             <span class="categ-1-label">{{category.name}}</span>
                             <span class="section-sb-toggle"><span class="section-sb-ico"></span></span>
                         </a>

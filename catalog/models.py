@@ -40,6 +40,8 @@ class Category(models.Model):
 @python_2_unicode_compatible
 class Product(models.Model):
         category = models.ForeignKey('Category', related_name = 'products')
+       # catalog = models.ForeignKey('Catalog', related_name = 'products',blank = True)
+        catalog = models.ManyToManyField(Catalog,verbose_name = "Каталог")
         name = models.CharField(max_length=300, verbose_name = "Наименование")
         slug = models.SlugField(max_length=150, verbose_name="Ссылка")
         description = models.TextField(blank=True,verbose_name='Описание')

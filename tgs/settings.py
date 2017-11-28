@@ -81,28 +81,27 @@ TEMPLATES = [
 WSGI_APPLICATION = 'tgs.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'HOST':'localhost',
-#         'NAME': 'tgsdb',
-#         'USER':'tgs',
-#         'PASSWORD':'trewqazx',
-#         'PORT':'5432',
-        
-#     }
-# }
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase',
+        'ENGINE': 'django.db.backends.postgresql',
+        'HOST':'localhost',
+        'NAME': 'tgsdb',
+        'USER':'tgs',
+        'PASSWORD':'trewqazx',
+        'PORT':'5432',
+        
     }
 }
-print('DATABASES variable set to use sqlite3')
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'mydatabase',
+#     }
+# }
+# print('DATABASES variable set to use sqlite3')
 
 
 # Password validation
@@ -144,11 +143,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-try:
-    from .local_settings_rus import *
-    # print('BASE_DIR=', BASE_DIR)
-    # print('STATIC_ROOT=', STATIC_ROOT)
+# try:
+#     from .local_settings_rus import *
+#     # print('BASE_DIR=', BASE_DIR)
+#     # print('STATIC_ROOT=', STATIC_ROOT)
     
-except ImportError:
-    pass
+# except ImportError:
+#     pass
 

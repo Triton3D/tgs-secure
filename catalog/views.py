@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from catalog.models import Catalog, Category, Product
 
 
-def catalog_list(request,catalog_slug):
+def catalog_list(request):
     catalog_list = Catalog.objects.all()
     #current_catalog = Catalog.objects.get(slug=catalog_slug)
     categorys = Category.objects.all() #change to category_list
@@ -17,20 +17,39 @@ def catalog_list(request,catalog_slug):
     return render (request,'catalog/catalog_list.html',context)
 
 #def category_list(request,category_slug,catalog_slug):
-def category_list(request,category_slug):
+def category_list(request,catalog_slug):
     catalog_list = Catalog.objects.all()
-    #current_catalog = Catalog.objects.get(slug=catalog_slug) #change to try
-    current_category = Category.objects.get(slug=category_slug) #change to try
-    category_list = Category.objects.all()
-    product_list = Product.objects.all()
-    filtered_product_list = Product.objects.all().filter(category__slug=category_slug)
+    # catalog = Catalog.objects.get(slug = catalog_slug)
+    current_catalog = Catalog.objects.get(slug=catalog_slug) #change to try
+    # current_category = Category.objects.get_or_404(Catalog=catalog_slug) #change to try
+    category_list = Category.objects.get(catalog = catalog_slug)
+    product_list = Product.objects.get_or_404(catalog = catalog_slug)
+    #filtered_product_list = Product.objects.all().filter(category__slug=category_slug)
     
     context = {'catalog_list' : catalog_list,
                 #'current_catalog' : current_catalog,
                 'current_category' : current_category,
                 'category_list' : category_list,
                 'product_list' : product_list,
-                'filtered_product_list' : filtered_product_list,
+                #'filtered_product_list' : filtered_product_list,
+                }
+    return render (request,'catalog/category_list.html',context)
+    #return HttpResponse("CATALOG: %s, CATEGORY %s " % (catalog_slug, category_slug,))
+def product_list(request,category_slug,catalog_slug):
+    catalog_list = Catalog.objects.all()
+    # catalog = Catalog.objects.get(slug = catalog_slug)
+    current_catalog = Catalog.objects.get(slug=catalog_slug) #change to try
+    # current_category = Category.objects.get_or_404(Catalog=catalog_slug) #change to try
+    product_list = Product.objects.get(category = category_slug)
+    product_list = Product.objects.get_or_404(catalog = category_slug)
+    #filtered_product_list = Product.objects.all().filter(category__slug=category_slug)
+    
+    context = {'catalog_list' : catalog_list,
+                #'current_catalog' : current_catalog,
+                'current_category' : current_category,
+                'category_list' : category_list,
+                'product_list' : product_list,
+                #'filtered_product_list' : filtered_product_list,
                 }
     return render (request,'catalog/category_list.html',context)
     #return HttpResponse("CATALOG: %s, CATEGORY %s " % (catalog_slug, category_slug,))
